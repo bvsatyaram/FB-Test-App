@@ -1,5 +1,6 @@
 <%= current_user ? "Welcome #{current_user.name}!!" : "Welcome Guest!!" %>
 <br />
-<%= link_to_function "Publish", "publishToWall()"  %>
+<%= link_to_function "JS Publish", "publishToWall()"  %>
 <br />
-<%= link_to "authenticate", home_authenticate_url %>
+<%= link_to 'Server Publish', home_publish_path %>
+<br />

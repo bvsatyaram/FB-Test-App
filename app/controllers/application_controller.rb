@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   attr_accessor :current_user
-  helper_method :authentication_callback_url, :current_user
+  helper_method :authentication_callback_url, :current_user, :fbclient
 
   protect_from_forgery
 #  before_filter :authorization_required
@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
     if session[:fb_user] && session[:access_token]
       @current_user = session[:fb_user]
     else
-      redirect_to oclient.web_server.authorize_url(:redirect_uri => authentication_callback_url, :scope => 'email,offline_access')
+      redirect_to oclient.web_server.authorize_url(:redirect_uri => authentication_callback_url, :scope => 'email,offline_access,publish_stream')
     end
   end
 

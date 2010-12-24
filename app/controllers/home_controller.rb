@@ -13,6 +13,11 @@ class HomeController < ApplicationController
   end
 
   def start
-    redirect_to oclient.web_server.authorize_url(:redirect_uri => authentication_callback_url, :scope => 'email,offline_access')
+    redirect_to oclient.web_server.authorize_url(:redirect_uri => authentication_callback_url, :scope => 'email,offline_access,publish_stream')
+  end
+
+  def publish
+    fbclient.selection.me.feed.publish!(:message => "Server Publish", :name => "Chronus")
+    redirect_to home_index_path
   end
 end
