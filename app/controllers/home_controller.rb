@@ -6,10 +6,13 @@ class HomeController < ApplicationController
   end
 
   def authenticate
-    access_token = client.web_server.get_access_token(params[:code], :redirect_uri => authentication_callback_url)
-    session[:fb_user] = JSON.parse access_token.get('/me')
+    oauth_response = oclient.web_server.get_access_token(params[:code], :redirect_uri => authentication_callback_url)
+    session[:access_token] = oauth_response.token
 
-    @current_user = session[:fb_user]
-    redirect_to root_path
+    redirect_to home_index_path
+  end
+
+  def start
+    redirect_to oclient.web_server.authorize_url(:redirect_uri => authentication_callback_url, :scope => 'email,offline_access')
   end
 end

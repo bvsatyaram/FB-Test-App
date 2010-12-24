@@ -1,5 +1,7 @@
 FbTestApp::Application.routes.draw do
   get "home/authenticate"
+  get "home/index"
+  get "home/start"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -50,7 +52,7 @@ FbTestApp::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => "home#index"
+  root :to => "home#start"
 
   # See how all your routes lay out with "rake routes"
 

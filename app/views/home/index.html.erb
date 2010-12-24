@@ -1,4 +1,4 @@
-<%= @current_user ? "Welcome #{@current_user["name"]}!!" : "Welcome Guest!!" %>
+<%= current_user ? "Welcome #{current_user.name}!!" : "Welcome Guest!!" %>
 <br />
 <%= link_to_function "Publish", "publishToWall()"  %>
 <br />

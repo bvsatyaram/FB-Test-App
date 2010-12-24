@@ -20,6 +20,7 @@ gem 'ruby-debug'
 gem 'mongrel'
 gem 'oauth2'
 gem 'json'
+gem 'fbgraph'
 
 # Bundle the extra gems:
 # gem 'bj'
