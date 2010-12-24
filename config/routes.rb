@@ -1,5 +1,5 @@
 FbTestApp::Application.routes.draw do
-  # get "home/index"
+  get "home/authenticate"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
