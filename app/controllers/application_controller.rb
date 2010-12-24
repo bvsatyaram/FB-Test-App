@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 #  before_filter :authorization_required
 
   def request_from_facebook?
-    request.referrer == FB_APP_URL
+    !!(request.referrer.match(FB_APP_URL))
   end
 
   # For now not using it
